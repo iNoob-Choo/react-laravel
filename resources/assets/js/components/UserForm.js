@@ -12,6 +12,7 @@ export default class UserForm extends Component {
     handleClick(e) {
       e.preventDefault();
       var url = __props.url;
+      var redirect_url = __props.redirect_url;
       var csrfToken = __props.csrfToken;
       let data = {
         email: document.getElementById('email').value,
@@ -40,14 +41,13 @@ export default class UserForm extends Component {
          status = response.status;
          statusText = response.statusText;
          return response.json();
-       }
-
-       )
+       })
        .then(
          response => {
            if(status === 200) {
            // Valid Response.
            // Check JSON response for successful operation, if applicable
+           window.location = redirect_url;
            }
            else if(status === 422) {
              // Validation Error

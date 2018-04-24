@@ -5,6 +5,7 @@
     <script>
           var __props = {
              url: "{{route('users.api-store')}}",
+             redirect_url:"{{route('users.index')}}",
              csrfToken: "{{ csrf_token() }}",
           };
     </script>
