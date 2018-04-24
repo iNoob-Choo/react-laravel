@@ -12,6 +12,7 @@ export default class UserForm extends Component {
     handleClick(e) {
       e.preventDefault();
       var url = __props.url;
+      var csrfToken = __props.csrfToken;
       let data = {
         email: document.getElementById('email').value,
         name: document.getElementById('name').value,
@@ -60,24 +61,10 @@ export default class UserForm extends Component {
        .catch(error => alert(error));
       }
 
-      handleSubmit(e){
-        e.preventDefault();
-        var url = __props.url;
-        let data = {
-          email: document.getElementById('email').value,
-          name: document.getElementById('name').value,
-          password: document.getElementById('password').value,
-        };
-        axios.post(url,data).then((response)=>{
-          console.log(response);
-          console.log(response.data);
-        });
-      }
-
      render() {
         return (
             <div>
-                <form name="userForm" className="form-horizontal" onSubmit={this.handleSubmit}>
+                <form name="userForm" className="form-horizontal" onSubmit={this.handleClick}>
                     <div id="form">
                         <div className="form-group">
                             <label className="col-sm-2 control-label required" htmlFor="name">Name</label>

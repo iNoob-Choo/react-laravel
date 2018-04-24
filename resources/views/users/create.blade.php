@@ -5,6 +5,7 @@
     <script>
           var __props = {
              url: "{{route('users.api-store')}}",
+             csrfToken: "{{ csrf_token() }}",
           };
     </script>
 @endsection
